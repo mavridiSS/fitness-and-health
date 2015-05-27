@@ -1,0 +1,22 @@
+/*black .active a,
+.black .active a:hover {
+    background-color: black;
+}
+*/
+
+/*.nav-pills > li.active > a, .nav-pills > li.active > a:hover {
+    color: #9D9D9D;
+    background-color: #222222;
+}
+
+.nav-pills > li > a, .nav-pills > a:hover {
+    color: #9D9D9D;
+}*/
+
+#slider {
+    width: 400px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+
