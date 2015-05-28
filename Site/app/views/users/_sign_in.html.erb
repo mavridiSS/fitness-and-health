@@ -1,0 +1,24 @@
+<%= form_for(@login, url: sign_in_path) do |f| %>
+<% if @login.errors.any? %>
+    <div id="error_explanation">
+      <h2> Въведените имейл или парола са неточни. Моля опитайте отново </h2>
+
+      <ul>
+      <% @login.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label 'Имейл' %>
+  <%= f.text_field :email %>
+  <br>
+  <%= f.label 'Парола' %>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.label 'Запомни ме' %>
+  <%= check_box_tag 'login[memorable]', 'memorable' %>
+  <br>
+  <%= f.submit('Влез') %>
+<% end %>

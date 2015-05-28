@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527131332) do
+ActiveRecord::Schema.define(version: 20150527174602) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "nickname",   null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150527131332) do
     t.string   "password_digest"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["password_digest"], name: "index_users_on_password_digest"
 
   create_table "workout_programs", force: :cascade do |t|

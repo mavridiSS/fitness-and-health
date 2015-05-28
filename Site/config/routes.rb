@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   root 'main#index'
 
   get '/registration', to: 'users#registration', as: 'registration'
-  get '/sign_in', to: 'users#sign_in'
   post '/registration', to: 'users#create'
+  get '/sign_in', to: 'users#sign_in'
+  post '/sign_in', to: 'users#checkout'
 
   get '/profile' => 'profile#show'
   resources :workout_program

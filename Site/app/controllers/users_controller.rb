@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  #before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /users/new
   def registration
     @user = User.new
@@ -18,7 +17,18 @@ class UsersController < ApplicationController
   end
 
   def sign_in
-    
+    @login = Login.new
+  end
+
+  def checkout
+    @login = Login.new(login_params)
+    if @login.create
+      session[:user_id] = @login.user.id
+      cookies.permanent[:user_id] = @login.user.id if @login.memorable
+      redirect_to root_path
+    else
+      render :sign_in
+    end
   end
 
   private
@@ -31,4 +41,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation)
     end
+
+    def login_params
+      params.require(:login).permit(:email, :password, :memorable)
+    end
+
 end
