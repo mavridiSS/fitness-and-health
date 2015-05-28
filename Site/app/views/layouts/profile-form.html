@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- CSS (load bootstrap) -->
+        <link rel="stylesheet" type = text/css href="lib/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" type = text/css href="main.css">
+        <meta charset="UTF-8">
+
+    </head>
+
+    <body>
+           <div class="container">
+            <h1>Профил</h1>
+            <hr>
+            <div class="row">
+              <!-- left column -->
+              <div class="col-md-3">
+                <div class="text-center">
+                  <img src="default_profile.png" class="avatar img-circle" alt="avatar">
+                  <input type="file" class="form-control">
+                </div>
+              </div>
+
+              <!-- edit form column -->
+              <div class="col-md-9 personal-info">
+                <h3>Лична информация</h3>
+
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">Име:</label>
+                    <div class="col-lg-8">
+                      <input class="form-control" type="text" value="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">Фамилия:</label>
+                    <div class="col-lg-8">
+                      <input class="form-control" type="text" value="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label">Прякор:</label>
+                    <div class="col-md-8">
+                      <input class="form-control" type="text" value="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label">Пол:</label>
+                    <div class="col-md-8">
+                      <input type="radio" name="sex" value="male" checked>Male <input type="radio" name="sex" value="female">Female
+                    </div>
+                  </div>
+                   <div class="form-group">
+                    <label class="col-md-3 control-label">Ръст:</label>
+                    <div class="col-md-2">
+                      <input class="form-control" type="number" value="">
+                    </div>
+                    </div>
+                     <div class="form-group">
+                    <label class="col-md-3 control-label">Тегло:</label>
+                    <div class="col-md-2">
+                      <input class="form-control" type="number" value="">
+                    </div>
+                    </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                      <input type="button" class="btn btn-primary" value="Запази промените">
+                      <span></span>
+                      <input type="reset" class="btn btn-default" value="Отказ">
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
+        <hr>
+</body>
+</html>
