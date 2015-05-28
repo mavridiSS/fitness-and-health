@@ -1,5 +1,5 @@
-import requests
 from bs4 import BeautifulSoup
+import requests
 
 URL = "http://www.bb-team.org/trenirovki/exercises/"
 BEGGINER = '?experience=747'

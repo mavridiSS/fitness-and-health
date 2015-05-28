@@ -31,37 +31,42 @@ def update_exerc(exerc_name, priority, difficulty, muscle_group):
     db_exerc.muscle_groups.append(MuscleGroups(name=muscle_group))
 
 # beginners
-
 for muscle_group, exercises in beg_exerc.items():
     for exerc in exercises:
         print(exerc, "  --  ", muscle_group)
-        priority = input("Enter priority for this exercise:")
+        # priority = input("Enter priority for this exercise:")
+        priority = 1
         db_exerc = session.query(Exercises).filter(
-            Exercises.name == exerc).one()
-        if db_exerc is None:
+            Exercises.name == exerc).all()
+        if len(db_exerc) == 0:
             session.add(Exercises(name=exerc))
+            session.commit()
         update_exerc(exerc, priority, BEGINNER, muscle_group)
         session.commit()
 
 for muscle_group, exercises in intm_exerc.items():
     for exerc in exercises:
         print(exerc, "  --  ", muscle_group)
-        priority = input("Enter priority for this exercise:")
+        # priority = input("Enter priority for this exercise:")
+        priority = 2
         db_exerc = session.query(Exercises).filter(
-            Exercises.name == exerc).one()
-        if db_exerc is None:
+            Exercises.name == exerc).all()
+        if len(db_exerc) == 0:
             session.add(Exercises(name=exerc))
-        update_exerc(exerc, priority, BEGINNER, muscle_group)
+            session.commit()
+        update_exerc(exerc, priority, INTERMEDIATE, muscle_group)
         session.commit()
 
 for muscle_group, exercises in adv_exerc.items():
     for exerc in exercises:
         print(exerc, "  --  ", muscle_group)
-        priority = input("Enter priority for this exercise:")
+        # priority = input("Enter priority for this exercise:")
+        priority = 3
         db_exerc = session.query(Exercises).filter(
-            Exercises.name == exerc).one()
-        if db_exerc is None:
+            Exercises.name == exerc).all()
+        if len(db_exerc) == 0:
             session.add(Exercises(name=exerc))
-        update_exerc(exerc, priority, BEGINNER, muscle_group)
+            session.commit()
+        update_exerc(exerc, priority, ADVANCED, muscle_group)
         session.commit()
 
