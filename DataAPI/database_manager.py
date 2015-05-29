@@ -3,16 +3,12 @@ from models import MuscleGroups, DifficultyLevel, Exercises, Priority, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
+from random import randint
+
 engine = create_engine('sqlite:///fitness.db')
 Base.metadata.create_all(engine)
 session = Session(bind=engine)
 
-# user.muscle_groups.append(MuscleGroups(name='Arms'))
-"""exerc = session.query(Exercises).filter(Exercises.name == "Vdigane ot lejanka").one()
-for exerc in exerc.priority,exerc.levels, exerc.mg():
-
-for name in user.muscle_groups:
-    print(name.name)"""
 
 BEGINNER = "beginner"
 INTERMEDIATE = "intermediate"
@@ -35,7 +31,7 @@ for muscle_group, exercises in beg_exerc.items():
     for exerc in exercises:
         print(exerc, "  --  ", muscle_group)
         # priority = input("Enter priority for this exercise:")
-        priority = 1
+        priority = randint(1, 8)
         db_exerc = session.query(Exercises).filter(
             Exercises.name == exerc).all()
         if len(db_exerc) == 0:
@@ -48,7 +44,7 @@ for muscle_group, exercises in intm_exerc.items():
     for exerc in exercises:
         print(exerc, "  --  ", muscle_group)
         # priority = input("Enter priority for this exercise:")
-        priority = 2
+        priority = randint(1, 8)
         db_exerc = session.query(Exercises).filter(
             Exercises.name == exerc).all()
         if len(db_exerc) == 0:
@@ -61,7 +57,7 @@ for muscle_group, exercises in adv_exerc.items():
     for exerc in exercises:
         print(exerc, "  --  ", muscle_group)
         # priority = input("Enter priority for this exercise:")
-        priority = 3
+        priority = randint(1, 8)
         db_exerc = session.query(Exercises).filter(
             Exercises.name == exerc).all()
         if len(db_exerc) == 0:
@@ -69,4 +65,3 @@ for muscle_group, exercises in adv_exerc.items():
             session.commit()
         update_exerc(exerc, priority, ADVANCED, muscle_group)
         session.commit()
-

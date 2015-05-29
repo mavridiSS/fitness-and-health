@@ -3,11 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <!-- CSS (load bootstrap) -->
         <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
          <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -22,38 +18,19 @@
             <div class="navbar-header">
               <div class="container">
                 <a href="" class="navbar-brand">Fitness and Health</a>
-               <ul class="nav navbar-nav navbar-right">
-                  <li> <%= link_to 'Регистрация', profile_path %> </li>
-                  <li class="dropdown">
-                     <a href="" class="dropdown-toggle" data-toggle="dropdown">Влез <b class="caret"></b></a>
-                     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
-                        <li>
-                           <div class="row">
-                              <div class="col-md-12">
-                                 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                    <div class="form-group">
-                                       <label class="sr-only" for="exampleInputEmail2">Имейл</label>
-                                       <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-                                    </div>
-                                    <div class="form-group">
-                                       <label class="sr-only" for="exampleInputPassword2">Парола</label>
-                                       <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                    </div>
-                                    <div class="checkbox">
-                                       <label>
-                                       <input type="checkbox"> Запомни ме
-                                       </label>
-                                    </div>
-                                    <div class="form-group">
-                                       <button type="submit" class="btn btn-success btn-block">Влез</button>
-                                    </div>
-                                 </form>
-                              </div>
-                           </div>
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
+                  <!-- <ul class="nav navbar-nav">
+                        <li><a href="">Exersices</a></li>
+                        <li><a href="">About</a></li>
+                  </ul> -->
+                   <ul class="nav navbar-nav pull-right">
+                        <% if is_logged_in? %>
+                          <li> <%= link_to 'Профил', profile_path %></li>
+                          <li> <%= link_to 'Изход', method: logout %> </li>
+                        <% else %>
+                          <li> <%= link_to 'Вход', sign_in_path %> </li>
+                          <li> <%= link_to 'Регистрация', registration_path %> </li>
+                        <% end %>
+                    </ul>
               </div>
             </div>
           </div>
@@ -63,7 +40,7 @@
                 <div class="col-xs-3">
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active"> <a href="" data-toggle="tab"> Exercises</a></li>
-                        <li> <%= link_to('Generate Program', sign_in_path, method: send_request, data: { toggle: 'tab'}) %> </li>
+                        <li> <a href="" data-toggle="tab">Generate Program</a></li>
                     </ul>
                 </div>
                     <div class="col-xs-9">
@@ -103,6 +80,9 @@
                 </div>
             <div>
         </section>
+
+           <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
     </body>
 </html>

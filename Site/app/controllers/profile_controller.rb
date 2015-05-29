@@ -10,5 +10,4 @@ class ProfileController < ApplicationController
   def update
     
   end
-
 end

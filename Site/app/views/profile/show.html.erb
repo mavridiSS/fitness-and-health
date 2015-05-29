@@ -1,0 +1,78 @@
+<html>
+    <head>
+         <!-- CSS (load bootstrap) -->
+        <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
+         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+         <%= csrf_meta_tags %>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    </head>
+
+    <body>
+           <div class="container">
+            <h1>Профил</h1>
+            <hr>
+            <div class="row">
+              <!-- left column -->
+              <div class="col-md-3">
+                <div class="text-center">
+                  <%= image_tag "default_profile.png", :class => "avatar img-circle", :alt => "avatar" %>
+                  <%= file_field :avatar, :class =>     "form-control" %>
+                </div>
+              </div>
+
+              <!-- edit form column -->
+              <div class="col-md-9 personal-info">
+                <h3>Лична информация</h3>
+
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">Име:</label>
+                    <div class="col-lg-8">
+                     <%= text_field :first_name, :class => 'form-control'%>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-3 control-label">Фамилия:</label>
+                    <div class="col-lg-8">
+                    <%= text_field :last_name, :class => 'form-control'%>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label">Прякор:</label>
+                    <div class="col-md-8">
+                      <%= text_field :nickname, :class => 'form-control'%>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label">Пол:</label>
+                    <div class="col-md-8">
+                    <%= radio_button_tag( 'sex', 'male', checked = true ) %> Мъж <%= radio_button_tag :sex, :value => 'female'%> Жена
+                    </div>
+                  </div>
+                   <div class="form-group">
+                    <label class="col-md-3 control-label">Ръст:</label>
+                    <div class="col-md-2">
+                     <%= number_field :heigth, :class => 'form-control'%>
+                    </div>
+                    </div>
+                     <div class="form-group">
+                    <label class="col-md-3 control-label">Тегло:</label>
+                    <div class="col-md-2">
+                      <%= number_field :heigth, :class => 'form-control'%>
+                    </div>
+                    </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                      <input type="button" class="btn btn-primary" value="Запази промените">
+                      <span></span>
+                      <input type="reset" class="btn btn-default" value="Отказ">
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </div>
+        <hr>
+</body>
+</html>

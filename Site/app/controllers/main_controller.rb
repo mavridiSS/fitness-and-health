@@ -2,7 +2,7 @@ class MainController < ApplicationController
   def index
     render :index, layout: false
   end
-
+  
   private
 
   def send_request

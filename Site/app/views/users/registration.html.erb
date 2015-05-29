@@ -12,16 +12,54 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-    <br>
-    <%= f.submit %>
-  </div>
-<% end %>
+  <!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- CSS (load bootstrap) -->
+        <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
+         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+         <%= csrf_meta_tags %>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    </head>
+     <body>
+          <form class="form-horizontal" action='' method="POST">
+          <fieldset>
+            <div id="legend">
+                <legend class="">Регистрация</legend>
+            </div>
+        <div class="control-group">
+          <label class="control-label" for="email">Имейл</label>
+          <div class="controls">
+            <%= f.text_field :email, :class => 'input-xlarge', :placeholder => 'Имейл', :id => 'email', :name => 'email' %>
+             <p class="help-block">Моля въведете вашия имейл</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="password">Парола</label>
+          <div class="controls">
+           <%= f.password_field :password, :class => 'input-xlarge', :placeholder => 'Парола', :id => 'password', :name => 'password' %>
+            <p class="help-block">Паролата трябва да бъде поне 6 символа</p>
+          </div>
+        </div>
+
+         <div class="control-group">
+          <label class="control-label"  for="password_confirm">Потвърди паролата</label>
+          <div class="controls">
+           <%= f.password_field :password_confirmation, :class => 'input-xlarge', :placeholder => 'Потвърди паролата', :id => 'password_confirm', :name => 'password_confirm' %>
+            <p class="help-block">Моля потвърдете вашата парола</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+
+          <div class="controls">
+            <button class="btn btn-success">Регистрирай се</button>
+          </div>
+        </div>
+      </fieldset>.
+          </form>
+        <% end %>
+
