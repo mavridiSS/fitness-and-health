@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/sign_in', to: 'main#sign_in'
   post '/sign_in', to: 'main#checkout'
 
-  resource :profile
+  resource :profile, only: [ :edit, :update ]
   resources :workout_programs, only: [ :new ]
 
   # Example of regular route:
