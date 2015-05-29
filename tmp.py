@@ -4,14 +4,16 @@ from bottle import error, BaseRequest
 import json
 
 
-TEST_ARR = [{"user_id": 1, "data": 2}, {"user_id": 3, "data": 4},
-            {"user_id": 5, "data": 6}, {"user_id": 7, "data": 8}]
+
+TEST_ARR = [{"id": '1', "data": '2'}, {"id": '3', "data": "4"},
+            {"id": '5', "data": '5'}, {"id": "7", "data": "8"}]
 
 
 def test_func(index):
     for elem in TEST_ARR:
-        if elem["user_id"] == index:
-            return elem["data"]
+        if elem["id"] == index:
+            data = elem["data"]
+            return data
     else:
         return "doesnt exist"
 
@@ -21,16 +23,14 @@ def callback(current_id):
     res = test_func(current_id)
     return res
 
-
 @post('/')
 def get_parameters():
-    cur_id = request.headers.get('id')
-    data = request.headers.get('data')
-    tmp = {}
-    tmp["user_id"] = cur_id
-    tmp["data"] = data
-   # TEST_ARR.append(tmp)
-    return tmp
+    """cur_id = request.body.get('id')
+    data = request.body.get('data')"""
+    tmp = request.json
+    TEST_ARR[0] = tmp
+
+    # return "dsdasdsads"
 
 
 """
