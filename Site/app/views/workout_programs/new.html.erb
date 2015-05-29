@@ -1,1 +1,33 @@
-<h1>sdsadads</h1>
+<%= render 'header_reg' %>
+<%= render 'navbar' %>
+<%= form_for(@workout_form, url: registration_path(@workout_form), html: {class: "form-horizontal"}) do |f| %>
+
+<fieldset>
+      <div id="legend">
+          <legend class="">Генерирай своята уникална програма</legend>
+      </div>
+  <div class="control-group">
+    <label class="control-label" for="difficulty">Ниво</label>
+    <div class="controls">
+      <%= select("difficulty", "genre", %w[Начинаещ Напреднал Експерт], {}, { index: nil }) %>
+       <p class="help-block">Моля изберете вашето ниво</p>
+    </div>
+  </div>
+
+    <div class="control-group">
+        <label class="control-label" for="workouts_count">Брой тренировъчни дни</label>
+        <div class="controls">
+         <%= f.number_field :workouts_count, :class => 'input-xlarge', :name => 'workouts_count', :min => 3, :max => 5 %>
+         <p class="help-block">Изберете колко дни от седмицата искате да тренирате (от 3 до 5) </p>
+        </div>
+    </div>
+
+  <div class="control-group">
+
+    <div class="controls">
+      <button class="btn btn-success">Генериране</button>
+    </div>
+  </div>
+</fieldset>
+<% end %>
+
