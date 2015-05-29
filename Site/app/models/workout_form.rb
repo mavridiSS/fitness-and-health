@@ -3,7 +3,7 @@ class WorkoutForm
   include ActiveModel::Validations
   include ActiveModel::Naming
 
-  attr :workouts_count, :difficulty
+  attr_accessor :workouts_count, :difficulty
 
    def initialize(attributes = {})
     self.attributes = attributes
@@ -17,5 +17,9 @@ class WorkoutForm
 
   def persisted?
     false
+  end
+
+  def json_settings
+    {'difficulty' => self.difficulty, 'workouts_count' => self.workouts_count}.to_json
   end
 end

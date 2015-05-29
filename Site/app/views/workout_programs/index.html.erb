@@ -1,0 +1,5 @@
+<% @programs.each do |program| %>
+  <% JSON.parse(program.json_serialized_data).each do |key, value| %>
+    <%= "#{key} #{value}" %> 
+  <% end %> <br>
+<% end %>

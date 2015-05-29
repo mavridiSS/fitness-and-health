@@ -1,5 +1,5 @@
 class WorkoutProgram < ActiveRecord::Base
-
+  belongs_to :user
   class << self
     def new_json(data = test_wp_json)
       data = data.serialize

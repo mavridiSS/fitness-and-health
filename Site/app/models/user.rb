@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_secure_password
   before_create :create_person
   has_one :profile
+  has_one :login
+  has_many :workout_programs
   validates_uniqueness_of :email
   validates :email, presence: true
   validates :password, presence: true, confirmation: true

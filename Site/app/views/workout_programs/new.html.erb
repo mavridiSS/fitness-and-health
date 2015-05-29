@@ -1,6 +1,7 @@
+
 <%= render 'header_reg' %>
 <%= render 'navbar' %>
-<%= form_for(@workout_form, url: registration_path(@workout_form), html: {class: "form-horizontal"}) do |f| %>
+<%= form_for(@workout_form, url: workout_programs_path, html: {class: "form-horizontal"}) do |f| %>
 
 <fieldset>
       <div id="legend">
@@ -9,7 +10,7 @@
   <div class="control-group">
     <label class="control-label" for="difficulty">Ниво</label>
     <div class="controls">
-      <%= select("difficulty", "genre", %w[Начинаещ Напреднал Експерт], {}, { index: nil }) %>
+      <%= select( :workout_form, :difficulty, [['Начинаещ', 1], ["Напреднал", 2], ['Експерт', 3]]) %>
        <p class="help-block">Моля изберете вашето ниво</p>
     </div>
   </div>
@@ -17,8 +18,8 @@
     <div class="control-group">
         <label class="control-label" for="workouts_count">Брой тренировъчни дни</label>
         <div class="controls">
-         <%= f.number_field :workouts_count, :class => 'input-xlarge', :name => 'workouts_count', :min => 3, :max => 5 %>
-         <p class="help-block">Изберете колко дни от седмицата искате да тренирате (от 3 до 5) </p>
+         <%= f.number_field :workouts_count, :class => 'input-xlarge', :name => 'workouts_count', :min => 3, :max => 6 %>
+         <p class="help-block">Изберете колко дни от седмицата искате да тренирате (от 3 до 6) </p>
         </div>
     </div>
 
@@ -29,5 +30,9 @@
     </div>
   </div>
 </fieldset>
+
+<% if is_logged_in? %>
+  <h1>dsaadsdsaadsdsaadsdas</h1>
+<% end %>
 <% end %>
 

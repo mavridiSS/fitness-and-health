@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529103339) do
+ActiveRecord::Schema.define(version: 20150529131941) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "nickname",   null: false
@@ -41,7 +41,8 @@ ActiveRecord::Schema.define(version: 20150529103339) do
   add_index "users", ["password_digest"], name: "index_users_on_password_digest"
 
   create_table "workout_programs", force: :cascade do |t|
-    t.text "json_serialized_data", null: false
+    t.text    "json_serialized_data", null: false
+    t.integer "user_id"
   end
 
   add_index "workout_programs", ["json_serialized_data"], name: "index_workout_programs_on_json_serialized_data"
