@@ -2,8 +2,8 @@ class WorkoutProgram < ActiveRecord::Base
 
   class << self
     def new_json(data = test_wp_json)
-      data = data.seria
-      WorkoutProgram.new(json_serialized_data: )
+      data = data.serialize
+      WorkoutProgram.new(data)
     end
   end
   private

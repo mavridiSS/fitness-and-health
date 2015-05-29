@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/sign_in', to: 'main#checkout'
 
   resource :profile
-  resources :workout_program
+  resources :workout_programs, only: [ :new ]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

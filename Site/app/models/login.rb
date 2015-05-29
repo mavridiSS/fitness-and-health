@@ -35,7 +35,7 @@ class Login
 
   def email_exists_and_password_correctness
     if email_does_not_exists? or password_uncorrect?
-      errors.add :email, MAIN_ERROR_MESSAGE
+      errors[:base] << MAIN_ERROR_MESSAGE
     end
   end
 

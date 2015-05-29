@@ -25,7 +25,17 @@
                       </div>
                     </div>
                   </div>
+                 <% if @login.errors.any? %>
+                    <div id="error_explanation">
+                      <h2> Ти си много тъп!</h2>
 
+                      <ul>
+                      <% @login.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
                   <!-- Controls -->
                   <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
