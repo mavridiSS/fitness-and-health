@@ -1,44 +1,25 @@
+
+<!-- index.html -->
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+    <head>
+      <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <!-- CSS (load bootstrap) -->
         <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
-         <%= javascript_include_tag 'main', 'data-turbolinks-track' => true %>
-         <!-- <%= csrf_meta_tags %> -->
-        <style>
-            .navbar { border-radius:0; }
-        </style>
-    <!-- CSS (load bootstrap) -->
-    <title>Health and Fitness</title>
-    <style>
-        .navbar { border-radius:0; }
-    </style>
+         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+         <%= csrf_meta_tags %>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+         <title>Health and Fitness</title>
+    </head>
+    <body>
+        <%= yield %>
 
-</head>
-
-<body>
-
-    <header class="navbar navbar-default container-fluid navbar-header">
-        <a href="/" class="navbar-brand"> Tennis Spot </a>
-
-    <!-- NAVIGATION -->
-    <nav class="navbar navbar-inverse" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href='/'>Начало</a></li>
-            <li><a href=>About</a></li>
-        </ul>
-    </nav>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-
-        <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
-        <div ui-view></div>
-
-    </div>
-
-</body>
+           <!-- Latest compiled and minified JavaScript -->
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+    </body>
 </html>

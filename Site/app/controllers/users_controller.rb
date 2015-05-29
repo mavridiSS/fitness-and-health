@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def registration
     @user = User.new
+    render :registration, layout: 'main'
   end
   # POST /users
   # POST /users.json
@@ -16,20 +17,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def sign_in
-    @login = Login.new
-  end
-
-  def checkout
-    @login = Login.new(login_params)
-    if @login.create
-      session[:user_id] = @login.user.id
-      cookies.permanent[:user_id] = @login.user.id if @login.memorable
-      redirect_to root_path
-    else
-      render :sign_in
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,0 +1,7 @@
+<% if is_logged_in? %>
+      <li> <%= link_to 'Профил', profile_path %></li>
+      <li> <%= link_to 'Изход', method: logout %> </li>
+    <% else %>
+      <li> <%= link_to 'Регистрация', registration_path %> </li>
+      <%= render "sign_in" %>
+    <% end %>

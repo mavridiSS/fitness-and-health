@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   get '/registration', to: 'users#registration', as: 'registration'
   post '/registration', to: 'users#create'
-  get '/sign_in', to: 'users#sign_in'
-  post '/sign_in', to: 'users#checkout'
+  get '/sign_in', to: 'main#sign_in'
+  post '/sign_in', to: 'main#checkout'
 
-  get '/profile' => 'profile#show'
+  resource :profile
   resources :workout_program
 
   # Example of regular route:

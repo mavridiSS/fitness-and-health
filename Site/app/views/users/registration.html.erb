@@ -1,65 +1,39 @@
-
-<%= form_for(@user, url: registration_path(@user)) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= render 'header_reg' %>
+<%= form_for(@user, url: registration_path(@user), html: {class: "form-horizontal"}) do |f| %>
+<fieldset>
+      <div id="legend">
+          <legend class="">Регистрация</legend>
+      </div>
+  <div class="control-group">
+    <label class="control-label" for="email">Имейл</label>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'input-xlarge', :placeholder => 'Имейл', :id => 'email', :name => 'email' %>
+       <p class="help-block">Моля въведете вашия имейл</p>
     </div>
-  <% end %>
+  </div>
 
-  <!DOCTYPE html>
-<html>
-    <head>
+  <div class="control-group">
+    <label class="control-label" for="password">Парола</label>
+    <div class="controls">
+     <%= f.password_field :password, :class => 'input-xlarge', :placeholder => 'Парола', :id => 'password', :name => 'password' %>
+      <p class="help-block">Паролата трябва да бъде поне 6 символа</p>
+    </div>
+  </div>
 
-        <!-- CSS (load bootstrap) -->
-        <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
-         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-         <%= csrf_meta_tags %>
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <div class="control-group">
+    <label class="control-label"  for="password_confirm">Потвърди паролата</label>
+    <div class="controls">
+     <%= f.password_field :password_confirmation, :class => 'input-xlarge', :placeholder => 'Потвърди паролата', :id => 'password_confirm', :name => 'password_confirm' %>
+      <p class="help-block">Моля потвърдете вашата парола</p>
+    </div>
+  </div>
 
-    </head>
-     <body>
-          <form class="form-horizontal" action='' method="POST">
-          <fieldset>
-            <div id="legend">
-                <legend class="">Регистрация</legend>
-            </div>
-        <div class="control-group">
-          <label class="control-label" for="email">Имейл</label>
-          <div class="controls">
-            <%= f.text_field :email, :class => 'input-xlarge', :placeholder => 'Имейл', :id => 'email', :name => 'email' %>
-             <p class="help-block">Моля въведете вашия имейл</p>
-          </div>
-        </div>
+  <div class="control-group">
 
-        <div class="control-group">
-          <label class="control-label" for="password">Парола</label>
-          <div class="controls">
-           <%= f.password_field :password, :class => 'input-xlarge', :placeholder => 'Парола', :id => 'password', :name => 'password' %>
-            <p class="help-block">Паролата трябва да бъде поне 6 символа</p>
-          </div>
-        </div>
-
-         <div class="control-group">
-          <label class="control-label"  for="password_confirm">Потвърди паролата</label>
-          <div class="controls">
-           <%= f.password_field :password_confirmation, :class => 'input-xlarge', :placeholder => 'Потвърди паролата', :id => 'password_confirm', :name => 'password_confirm' %>
-            <p class="help-block">Моля потвърдете вашата парола</p>
-          </div>
-        </div>
-
-        <div class="control-group">
-
-          <div class="controls">
-            <button class="btn btn-success">Регистрирай се</button>
-          </div>
-        </div>
-      </fieldset>.
-          </form>
-        <% end %>
+    <div class="controls">
+      <button class="btn btn-success">Регистрирай се</button>
+    </div>
+  </div>
+</fieldset>
+<% end %>
 
